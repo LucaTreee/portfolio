@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luca Trentalange</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/others/favicon-portfolio.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/others/favicon-portfolio.png">
+    <link rel="shortcut icon" href="assets/others/favicon-portfolio.png">
+  </head>
+
+
+  <body>
+    <div class="video-background">
+      <!-- Immagine di fallback mostrata inizialmente -->
+      <img src="assets/videos/fallback.png" class="video-fallback" alt="Background">
+
+      <!-- Video di sfondo -->
+      <video autoplay muted loop playsinline>
+        <source src="assets/videos/bg_animation.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <script>
+      const video = document.querySelector('.video-background video');
+      const fallback = document.querySelector('.video-background .video-fallback');
+
+      video.addEventListener('canplaythrough', () => {
+        video.style.display = 'block';    // mostra il video
+        fallback.style.display = 'none';  // nasconde l’immagine di fallback
+      });
+    </script>
+
+      <main class="board">
+        <div class="top-bar">
+          <div class="text-left">
+            Luca Trentalange<br>
+            UX/UI Designer<br>
+            Interaction Designer
+          </div>
+
+          <div class="text-right">
+            Based in Italy<br>
+            <a href="about.html" class="link">About -></a>
+          </div>
+        </div>
+
+        <!-- Sezione progetti -->
+        <div class="projects">
+          <div class="design">
+            <h2>(DESIGN)</h2>
+            <a href="https://www.behance.net/gallery/167881213/MAGMA-Museum-_-Interactive-Experience" class="design_project" data-cover="assets/images/covers/Manifesti Infiniti.png" data-hover="// exhibit, interaction ➔" ><span class="original-text">Manifesti Infiniti ➔</span></a>
+            <a href="https://www.behance.net/gallery/165510545/MAAF-VISUAL-IDENTITY" class="design_project" data-cover="assets/images/covers/MAAF.png" data-hover="// visual, motion ➔" ><span class="original-text">MAAF ➔</span></a>
+            <a href="https://www.behance.net/gallery/204217503/VAPOR-Data-Viz-UXUI-Design" class="design_project" data-cover="assets/images/covers/VAPOR.png" data-hover="// data viz, ux.ui ➔" ><span class="original-text">VAPOR ➔</span></a>
+            <a href="https://www.behance.net/gallery/174598947/REGULA-_-Table-Lamp" class="design_project" data-cover="assets/images/covers/Regula.png" data-hover="// product, interaction ➔" ><span class="original-text">Regula ➔</span></a>
+            <a href="https://www.behance.net/gallery/193786943/GJASZ-Pesaro-e-Jazz" class="design_project" data-cover="assets/images/covers/GJASZ.png" data-hover="// exhibit, interaction ➔" ><span class="original-text">GJASZ – Pesaro è Jazz ➔</span></a>
+            <a href="https://www.behance.net/gallery/188281619/UNICH-Website-Design-UXUI" class="design_project" data-cover="assets/images/covers/UNICH.png" data-hover="// ux.ui, dev ➔" ><span class="original-text">UNICH ➔</span></a>
+          </div>
+
+          <div class="coding">
+            <h2>(CODING)</h2>
+            <a href="https://lucatreee.github.io/what-are-your-gremlins-saying/" class="coding_project" data-cover="assets/images/covers/What are your gremlins saying.png" data-hover="// rigid body with matter.js ➔" ><span class="original-text">What are your gremlins saying? ➔</span></a>
+            <a href="https://lucatreee.github.io/prima-stanza-a-destra/" class="coding_project" data-cover="assets/images/covers/Prima stanza a destra.png" data-hover="// scratch and reveal effect ➔" ><span class="original-text">Prima stanza a destra ➔</span></a>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+          <div class="footer-text">
+            <a href="assets/others/Resume_LucaTrentalange.pdf" target="_blank" rel="noopener noreferrer" class="link">➔ Resume</a><br>
+            <a href="mailto:luca3803@gmail.com" class="link">luca3803@gmail.com</a>
+          </div>
+          <div class="footer-icons">
+            <a href="https://www.instagram.com/lucatreee" target="_blank" rel="noopener noreferrer"><img src="assets/images/icons/instagram.svg" alt="Instagram"></a>
+            <a href="https://www.behance.net/lucatrentalange" target="_blank" rel="noopener noreferrer"><img src="assets/images/icons/behance.svg" alt="Behance"></a>
+            <a href="https://www.linkedin.com/in/lucatrentalange/" target="_blank" rel="noopener noreferrer"><img src="assets/images/icons/linkedin.svg" alt="LinkedIn"></a>
+            <a href="https://github.com/LucaTreee" target="_blank" rel="noopener noreferrer"><img src="assets/images/icons/github.svg" alt="GitHub"></a>
+          </div>
+        </div>
+      </main>
+
+    <!-- Script preview immagini -->
+    <script>
+    (function () {
+      const isReallyTouch =
+        ('ontouchstart' in window && navigator.maxTouchPoints > 0) ||
+        matchMedia('(hover: none) and (pointer: coarse)').matches;
+
+      if (isReallyTouch) {
+        return;
+      }
+
+      const preview = document.createElement('img');
+      preview.className = 'project-preview';
+      preview.style.opacity = '0';
+      document.body.appendChild(preview);
+
+      function showPreview(src) {
+        if (!src) return;
+        preview.src = src;
+        preview.style.opacity = '1';
+      }
+
+      function hidePreview() {
+        preview.style.opacity = '0';
+      }
+
+      const projectLinks = document.querySelectorAll('[data-cover]');
+      projectLinks.forEach(link => {
+        const src = link.dataset.cover;
+        link.addEventListener('mouseenter', () => showPreview(src));
+        link.addEventListener('mouseleave', hidePreview);
+        link.addEventListener('focus', () => showPreview(src));
+        link.addEventListener('blur', hidePreview);
+        link.addEventListener('click', hidePreview);
+      });
+    })();
+    </script>
+
+    <script>
+    document.addEventListener('touchend', () => {
+      const active = document.activeElement;
+      if (active && active.tagName === 'A') active.blur();
+    }, { passive: true });
+    </script>
+  </body>
+
+</html>
