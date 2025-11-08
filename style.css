@@ -233,7 +233,7 @@ a[data-hover]:hover span.original-text {
 
   .text-left,
   .text-right {
-    font-size: clamp(32px, 6vw, 36px);
+    font-size: clamp(30px, 6vw, 36px);
     line-height: 1.2;
   }
 
@@ -743,5 +743,6 @@ a:hover {
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
   }
+
 
 }
