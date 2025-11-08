@@ -234,7 +234,7 @@ a[data-hover]:hover span.original-text {
   .text-left,
   .text-right {
     font-size: clamp(30px, 6vw, 36px);
-    line-height: 1.2;
+    line-height: 1.1;
   }
 
   .design,
@@ -746,3 +746,4 @@ a:hover {
 
 
 }
+
